@@ -1,0 +1,22 @@
+clc;
+clear;
+close;
+
+s = poly(0,'s');
+H = syslin('c',100/(s^2+10*s+100));
+
+// Bode Plot
+bode(H);
+xtitle("Bode Plot");
+
+// Natural Frequency
+wn = sqrt(100);
+
+// Damping Ratio
+zeta = 10/(2*wn);
+
+disp("Natural Frequency = ");
+disp(wn);
+
+disp("Damping Ratio = ");
+disp(zeta);
