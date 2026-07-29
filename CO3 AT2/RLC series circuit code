@@ -1,0 +1,23 @@
+clc;
+clear;
+close;
+
+// Transfer Function
+s = poly(0,'s');
+H = syslin('c', 8/(s^2 + 6*s + 8));
+
+// Time vector
+t = 0:0.01:10;
+
+// Step input
+u = ones(t);
+
+// Step response
+y = csim(u,t,H);
+
+// Plot
+plot(t,y,'b','LineWidth',2);
+xlabel("Time (s)");
+ylabel("Capacitor Voltage");
+title("Step Response of RLC Series Circuit");
+xgrid();
