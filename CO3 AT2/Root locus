@@ -1,0 +1,28 @@
+clc;
+clear;
+close;
+
+s = poly(0,'s');
+
+// Root locus
+G = syslin('c',1/(s*(s+2)*(s+4)));
+
+evans(G,50);
+
+title("Root Locus");
+xgrid();
+
+// Critical Gain
+K = 48;
+
+disp("Critical Gain K = ");
+disp(K);
+
+// Closed-loop poles
+P = s*(s+2)*(s+4)+K;
+
+disp("Characteristic Polynomial");
+disp(P);
+
+disp("Closed Loop Poles");
+disp(roots(P));
