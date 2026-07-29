@@ -1,0 +1,28 @@
+clc;
+clear;
+close;
+
+s = poly(0,'s');
+
+H = syslin('c',10*(s+1)/((s+2)*(s+5)));
+
+// Display transfer function
+disp(H);
+
+// Partial Fraction
+[num,den] = tf2ss(H);
+disp("Numerator");
+disp(num);
+
+disp("Denominator");
+disp(den);
+
+// Impulse Response
+subplot(2,1,1)
+impulse(H);
+title("Impulse Response");
+
+// Step Response
+subplot(2,1,2)
+step(H);
+title("Step Response");
