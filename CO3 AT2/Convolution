@@ -1,0 +1,32 @@
+clc;
+clear;
+close;
+
+dt = 0.001;
+t = 0:dt:5;
+
+// Signals
+x = exp(-2*t);
+h = exp(-3*t);
+
+// Convolution
+y = convol(x,h)*dt;
+
+// Time for output
+ty = 0:dt:(length(y)-1)*dt;
+
+// Plot
+subplot(3,1,1)
+plot(t,x);
+title("Input x(t)");
+xgrid();
+
+subplot(3,1,2)
+plot(t,h);
+title("Impulse Response h(t)");
+xgrid();
+
+subplot(3,1,3)
+plot(ty,y);
+title("Output y(t)");
+xgrid();
